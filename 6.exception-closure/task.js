@@ -46,7 +46,7 @@ class Triangle {
 
 function getTriangle(a, b, c){
   try {
-    return new Triangle(...Array.from(arguments))
+    return new Triangle(a, b, c)
   } catch (error) {
     return {
       get area() {return "Ошибка! Треугольник не существует"},
