@@ -4,21 +4,14 @@ class PrintEditionItem {
 		this.name = name;
 		this.releaseDate = releaseDate;
 		this.pagesCount = pagesCount;
-		this._state = state;
+		this.state = state;
 		this.type = null;
 	}
 
-	fix() {
-		this._state *= 1.5;
-		if (this._state > 100) {
-			this._state = 100;
-		}
-	}
-
 	set state(bookState) {
-		if (this._state > 100) {
+		if (bookState > 100) {
 			this._state = 100;
-		} else if (this._state < 0) {
+		} else if (bookState < 0) {
 			this._state = 0;
 		} else {
 			this._state = bookState;
@@ -27,6 +20,10 @@ class PrintEditionItem {
 
 	get state() {
 		return this._state;
+	}
+
+	fix() {
+		this.state = this._state * 1.5;
 	}
 }
 
