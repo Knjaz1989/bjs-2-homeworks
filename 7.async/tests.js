@@ -17,6 +17,10 @@ describe('Домашнее задание к лекции 7 «Асинхронн
     expect(clock.alarmCollection[0].canCall).toBe(true);
     expect(clock.alarmCollection[0].time).toBe("16:45");
     expect(clock.alarmCollection[0].callback).toBe(callback);
+    expect(clock.addClock("g6:45", callback)).toEqual("Время должно соответствовать формату HH:MM");
+    expect(clock.addClock("16:4g", callback)).toEqual("Время должно соответствовать формату HH:MM");
+    expect(clock.addClock("16:-1", callback)).toEqual("Время должно быть в правильном диапазоне");
+    expect(clock.addClock("24:45", callback)).toEqual("Время должно быть в правильном диапазоне");
   });
 
   it('id интервала должно отсутствовать до запуска', () => {
